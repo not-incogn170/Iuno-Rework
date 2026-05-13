@@ -1,5 +1,5 @@
->> ```Myuti WhatsApp Bot```
-> v0.0.2
+>> ```Iuno Bot```
+> v0.0.2-Dev1
 
 >> Commands
 > .info | _server info_
