@@ -7,6 +7,6 @@
 > .sticker <image> | _image to sticker_
 > .whenyah <text> | _when? i don't know_
 
->> Iykyk
-> .lmk | _let myuti know and update if exist_
+>> Owner only
+> .lmk | _check update_
 > .dead | _will restart or kill itself (suicide)_
