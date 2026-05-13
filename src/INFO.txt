@@ -4,7 +4,7 @@
 > v0.0.2-Dev1
 
 >> Commands
-> .info | _server info_
+
 > .menu | _bot menu_
 > .sticker <image> | _image to sticker_
 > .whenyah <text> | _when? i don't know_
@@ -12,3 +12,4 @@
 >> Owner only
 > .lmk | _check update_
 > .dead | _will restart or kill itself (suicide)_
+> .info | _server info_
