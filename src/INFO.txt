@@ -1,4 +1,6 @@
 >> ```Iuno Bot```
+"Hello the unwritten one!"
+
 > v0.0.2-Dev1
 
 >> Commands
