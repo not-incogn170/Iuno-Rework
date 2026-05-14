@@ -98,9 +98,12 @@ async function main(){
       case '.s':
         if(!msg.message.imageMessage && !msg.message.videoMessage){
           await sock.sendMessage(jid, {text: 'No media found, please attach image/video'}, {quoted: msg})
-        }else{
-          sticker.fromImage(sock, jid, msg, downloadMediaMessage)
-          sticker.fromVideo(sock, jid, msg, downloadMediaMessage)
+        }else if(msg.message.imageMessage || msg.message.videoMessage){
+          const mediaMsg = msg.message.imageMessage ? msg.message.imageMessage : msg.message.videoMessage
+          const mediaType = msg.message.imageMessage ? 'image' : 'video'
+          const stream = await downloadMediaMessage(msg, 'buffer', {}, {logger: pino({level: 'silent'})})
+          const stickerBuff = await sticker.createSticker(stream, {type: mediaType})
+          await sock.sendMessage(jid, {sticker: stickerBuff}, {quoted: msg})
         }
         break
       case '.whenyah':
