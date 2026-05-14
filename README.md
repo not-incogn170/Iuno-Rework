@@ -8,5 +8,7 @@
 </p>
 </div>
 <div>
-  <p style="font-size: 70px;">Features</p>
+  <h1>Features</h1>
+  <p>> Sticker Maker</p>
+  <p>> whenyah</p>
 </div>
