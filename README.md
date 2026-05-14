@@ -7,26 +7,33 @@
 <p>Forked from <a href=https://github.com/abdeh24/myuti>Myuti</a> by abdeh24(my beloved nigga)
 </p>
 </div>
-<div>
-  <h2>Features</h2>
-  <p>
-    > Sticker Maker<br>
-    > When yah
-  </p>
-</div>
-<div>
-  <h2>Requirements</h2>
-  <p>
-    -> NodeJs<br>
-    -> ffmepg
-  </p>
-      <h2>Installation</h2>
-    <ul>
-      <li>Open terminal</li>
-      <li>Clone repository<br>
-      <code>git clone https://github.com/not-incogn170/Iuno-Rework.git</code></li>
-      <li>make .env file fill with<br>
-      <code>PHONE_NUMBER=62xxx</code> for bot<br>
-      <code>OWNER_PHONE_NUMBER=62xxx</code> for bot owner</li>
-    </ul>
-</div>
+
+# Features
+- Sticker maker
+- Whenyah (idk)
+
+# Installation guide
+### Requirements 
+- NodeJs
+- ffmpeg
+### in Terminal
+1. clone this repo
+   ```bash
+   git clone https://github.com/not-incogn170/Iuno-Rework.git
+   ```
+3. open the 'Iuno-Rework' folder
+4. install the modules/dependency
+   ```bash
+   npm i
+   ```
+6. make .env file
+   ```env
+   PHONE_NUMBER=62xxx
+   OWNER_PHONE_NUMBER=62XXX
+   ```
+7. start the bot
+   ```bash
+   node .
+   ```
+> [!NOTE]
+> You'll asked to connect the number using pairing code
