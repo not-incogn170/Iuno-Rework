@@ -6,8 +6,8 @@
 >> Commands
 
 > .menu | _bot menu_
-> .sticker <image> | _image to sticker_
-> .whenyah <text> | _when? i don't know_
+> .s <image> | _image to sticker_
+> when yah <text> | _when? i don't know_
 
 >> Owner only
 > .lmk | _check update_

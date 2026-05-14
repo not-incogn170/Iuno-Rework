@@ -95,14 +95,14 @@ async function main(){
       case '.menu':
         await sock.sendMessage(jid, {text: menuText}, {quoted: msg})
         break
-      case '.sticker':
+      case '.s':
         if(!msg.message.imageMessage){
           await sock.sendMessage(jid, {text: 'No image found, please attach image'}, {quoted: msg})
         }else{
           sticker.fromImage(sock, jid, msg, downloadMediaMessage)
         }
         break
-      case '.whenyah':
+      case 'when yah':
         await sock.sendMessage(jid, {text: 'When when'}, {quoted: msg})
         break
     }
