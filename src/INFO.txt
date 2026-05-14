@@ -6,10 +6,10 @@
 >> Commands
 
 > .menu | _bot menu_
-> .s <image> | _image to sticker_
+> .s <media> | _converts media to sticker_
 > .whenyah <text> | _when? i don't know_
 
 >> Owner only
-> .lmk | _check update_
+> .cu | _check update_
 > .dead | _will restart or kill itself (suicide)_
 > .info | _server info_

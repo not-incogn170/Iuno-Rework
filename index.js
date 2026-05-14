@@ -118,7 +118,7 @@ async function main(){
           await sock.sendMessage(jid, {text: 'Goodbye...'}, {quoted: msg})
           process.exit(0)
           break
-        case '.lmk':
+        case '.cu':
           let log = await isUpdateExist()
           console.log(log)
           await sock.sendMessage(jid, {text: log}, {quoted: msg})
