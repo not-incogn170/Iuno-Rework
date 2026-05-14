@@ -22,6 +22,8 @@
   </p>
       <h2>Installation</h2>
       <p>
-        Open your terminal
+        Open your terminal<br>
+        Type<br>
+        <code>git clone https://github.com/not-incogn170/Iuno-Rework.git</code>
       </p>
 </div>
