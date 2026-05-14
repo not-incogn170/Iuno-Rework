@@ -8,14 +8,14 @@
 </p>
 </div>
 <div>
-  <h1>Features</h1>
+  <h2>Features</h2>
   <p>
     > Sticker Maker<br>
     > When yah
   </p>
 </div>
 <div>
-  <h1>Requirements</h1>
+  <h2>Requirements</h2>
   <p>
     -> NodeJs<br>
     -> ffmepg
@@ -23,7 +23,7 @@
       <h2>Installation</h2>
       <p>
         Open your terminal<br>
-        Type<br>
+        clone repository<br>
         <code>git clone https://github.com/not-incogn170/Iuno-Rework.git</code>
       </p>
 </div>
