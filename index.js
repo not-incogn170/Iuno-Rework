@@ -102,7 +102,7 @@ async function main(){
           sticker.fromImage(sock, jid, msg, downloadMediaMessage)
         }
         break
-      case 'when yah':
+      case '.whenyah':
         await sock.sendMessage(jid, {text: 'When when'}, {quoted: msg})
         break
     }
