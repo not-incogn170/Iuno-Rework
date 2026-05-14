@@ -86,7 +86,7 @@ async function main(){
     
     if(!msg.key.fromMe){
       //console.log(msg)
-      await sock.sendReadReceipt(msg.key.remoteJid, [msg.key.id], 'read')
+      await sock.readMessages([msg.key])
       console.log(`${userId} | ${msg.pushName}\n> ${rawText}\n=================`)
     }
     
