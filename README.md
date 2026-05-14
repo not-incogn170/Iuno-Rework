@@ -7,3 +7,6 @@
 <p>Forked from <a href=https://github.com/abdeh24/myuti>Myuti by abdeh24(my beloved nigga)</a>
 </p>
 </div>
+<div>
+  <p style="font-size: 20px;">Features</p>
+</div>
