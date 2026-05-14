@@ -4,7 +4,7 @@
 </div>
 <div>
 <p align="center">an open source Whatsapp Bot built with Node.js using WhiskeySocket/Baileys library.</p>
-<p>Forked from <a href=https://github.com/abdeh24/myuti>Myuti by abdeh24(my beloved nigga)</a>
+<p>Forked from <a href=https://github.com/abdeh24/myuti>Myuti</a> by abdeh24(my beloved nigga)
 </p>
 </div>
 <div>
