@@ -14,3 +14,14 @@
     > When yah
   </p>
 </div>
+<div>
+  <h1>Requirements</h1>
+  <p>
+    -> NodeJs<b>
+    -> ffmepg
+  </p>
+      <h2>Installation</h2>
+      <p>
+        Open your terminal
+      </p>
+</div>
