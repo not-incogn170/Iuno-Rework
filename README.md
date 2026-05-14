@@ -25,6 +25,8 @@
       <li>Open terminal</li>
       <li>Clone repository<br>
       <code>git clone https://github.com/not-incogn170/Iuno-Rework.git</code></li>
-      <li>nanti ajah, lagi makan soalnya</li>
+      <li>make .env file fill with<br>
+      <code>PHONE_NUMBER=62xxx</code> for bot<br>
+      <code>OWNER_PHONE_NUMBER=62xxx</code> for bot owner</li>
     </ul>
 </div>
