@@ -25,6 +25,6 @@
       <li>Open terminal</li>
       <li>Clone repository<br>
       <code>git clone https://github.com/not-incogn170/Iuno-Rework.git</code></li>
-      <li></li>
+      <li>nanti ajah, lagi makan soalnya</li>
     </ul>
 </div>
