@@ -80,7 +80,7 @@ async function main(){
   sock.ev.on('messages.upsert', async ({messages}) => {
     const msg = messages[0]
     if(!msg.message || msg.key.fromMe) return
-    const rawText = msg.message.conversation || msg.message.extendedTextMessage?.text || msg.message.imageMessage?.caption || "<not yet implemented>"
+    const rawText = msg.message.conversation || msg.message.extendedTextMessage?.text || msg.message.imageMessage?.caption || msg.message.videoMessage || "<not yet implemented>"
     const userId = msg.key.participantAlt || msg.key.remoteJidAlt || "error"
     let text = rawText.split(' ')
     
@@ -96,10 +96,11 @@ async function main(){
         await sock.sendMessage(jid, {text: menuText}, {quoted: msg})
         break
       case '.s':
-        if(!msg.message.imageMessage){
-          await sock.sendMessage(jid, {text: 'No image found, please attach image'}, {quoted: msg})
+        if(!msg.message.imageMessage && !msg.message.videoMessage){
+          await sock.sendMessage(jid, {text: 'No media found, please attach image/video'}, {quoted: msg})
         }else{
           sticker.fromImage(sock, jid, msg, downloadMediaMessage)
+          sticker.fromVideo(sock, jid, msg, downloadMediaMessage)
         }
         break
       case '.whenyah':
