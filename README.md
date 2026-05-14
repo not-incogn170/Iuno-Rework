@@ -17,7 +17,7 @@
 <div>
   <h1>Requirements</h1>
   <p>
-    -> NodeJs<b>
+    -> NodeJs<br>
     -> ffmepg
   </p>
       <h2>Installation</h2>
