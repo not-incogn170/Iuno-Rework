@@ -8,5 +8,5 @@
 </p>
 </div>
 <div>
-  <p style="font-size: 20px;">Features</p>
+  <p style="font-size: 70px;">Features</p>
 </div>
