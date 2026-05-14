@@ -9,6 +9,8 @@
 </div>
 <div>
   <h1>Features</h1>
-  <p>> Sticker Maker</p>
-  <p>> whenyah</p>
+  <p>
+    > Sticker Maker<br>
+    > When yah
+  </p>
 </div>
