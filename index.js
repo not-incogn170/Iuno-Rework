@@ -80,7 +80,7 @@ async function main(){
   sock.ev.on('messages.upsert', async ({messages}) => {
     const msg = messages[0]
     if(!msg.message || msg.key.fromMe) return
-    const rawText = msg.message.conversation || msg.message.extendedTextMessage?.text || msg.message.imageMessage?.caption || msg.message.videoMessage?.caption || msg.contextInfo?.quotedMessage?.imageMessage || msg.contextInfo?.quotedMessage?.videoMessage || "<not yet implemented>"
+    const rawText = msg.message.conversation || msg.message.extendedTextMessage?.text || msg.message.imageMessage?.caption || msg.message.videoMessage?.caption || "<not yet implemented>"
     const userId = msg.key.participantAlt || msg.key.remoteJidAlt || "error"
     let text = rawText.split(' ')
     
@@ -96,16 +96,8 @@ async function main(){
       case '.menu':
         await sock.sendMessage(jid, {text: menuText}, {quoted: msg})
         break
-      case '.ts':
-        let textToSticker = (text.slice(1).join(' ')).trim()
-        if(!msg.message.extendedTextMessage?.text){
-          await sock.sendMessage(jid, {text: 'No text found, please attach text'}, {quoted: msg})
-        }else{
-          sticker.fromText(sock, jid, msg, textToSticker)
-        }
-        break
       case '.s':
-        if(!msg.message.imageMessage && !msg.message.videoMessage && !msg.contextInfo?.quotedMessage?.imageMessage && !msg.contextInfo?.quotedMessage?.videoMessage){
+        if(!msg.message.imageMessage && !msg.message.videoMessage){
           await sock.sendMessage(jid, {text: 'No media found, please attach image/video'}, {quoted: msg})
         }else if(msg.message.imageMessage && msg.contextInfo?.quotedMessage?.imageMessage){
           sticker.fromImage(sock, jid, msg, downloadMediaMessage)
