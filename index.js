@@ -97,11 +97,11 @@ async function main(){
         await sock.sendMessage(jid, {text: menuText}, {quoted: msg})
         break
       case '.ts':
-        let textToSticker = rawText.replace('.ts', '').trim()
+        let textToSticker = (text.slice(1).join(' ')).trim()
         if(!msg.message.extendedTextMessage?.text){
           await sock.sendMessage(jid, {text: 'No text found, please attach text'}, {quoted: msg})
-        }else if(msg.message.extendedTextMessage?.text){
-          sticker.fromText(sock, jid, msg)
+        }else{
+          sticker.fromText(sock, jid, msg, textToSticker)
         }
         break
       case '.s':
