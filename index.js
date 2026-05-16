@@ -96,7 +96,7 @@ async function main(){
       case '.menu':
         await sock.sendMessage(jid, {text: menuText}, {quoted: msg})
         break
-      case '.ts <text>':
+      case '.ts':
         if(!msg.message.extendedTextMessage?.text){
           await sock.sendMessage(jid, {text: 'No text found, please attach text'}, {quoted: msg})
         }else if(msg.message.extendedTextMessage?.text){
