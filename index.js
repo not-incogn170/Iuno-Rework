@@ -96,6 +96,9 @@ async function main(){
       case '.menu':
         await sock.sendMessage(jid, {text: menuText}, {quoted: msg})
         break
+      case '.ts <text>':
+        await sticker.fromText(sock, jid, msg, rawText.slice(4))
+        break
       case '.s':
         if(!msg.message.imageMessage && !msg.message.videoMessage && !msg.contextInfo?.quotedMessage?.imageMessage && !msg.contextInfo?.quotedMessage?.videoMessage){
           await sock.sendMessage(jid, {text: 'No media found, please attach image/video'}, {quoted: msg})
