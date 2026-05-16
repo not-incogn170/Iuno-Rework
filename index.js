@@ -97,12 +97,16 @@ async function main(){
         await sock.sendMessage(jid, {text: menuText}, {quoted: msg})
         break
       case '.s':
-        if(!msg.message.imageMessage && !msg.message.videoMessage && !msg.quoted?.message?.imageMessage && !msg.quoted?.message?.videoMessage){
+        if(!msg.message.imageMessage && !msg.message.videoMessage){
           await sock.sendMessage(jid, {text: 'No media found, please attach image/video'}, {quoted: msg})
-        }else if(msg.message.imageMessage && msg.quoted?.message?.imageMessage){
+        }else if(msg.message.imageMessage){
           sticker.fromImage(sock, jid, msg, downloadMediaMessage)
-        }else if(msg.message.videoMessage && msg.quoted?.message?.videoMessage){
+        }else if(msg.message.videoMessage){
           sticker.fromVideo(sock, jid, msg, downloadMediaMessage)
+        }else if(msg.quoted?.message?.imageMessage){
+          sticker.fromImage(sock, jid, msg.quoted, downloadMediaMessage)
+        }else if(msg.quoted?.message?.videoMessage){
+          sticker.fromVideo(sock, jid, msg.quoted, downloadMediaMessage)
         }
         break
       case '.whenyah':
