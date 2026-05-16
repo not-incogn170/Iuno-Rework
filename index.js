@@ -112,11 +112,6 @@ async function main(){
     
     if(userId == `${OWNER_PHONE_NUMBER}@s.whatsapp.net` || userId == `${OWNER_PHONE_NUMBER}@s.whatsapp.net`){
       switch(text[0]){
-        case '.restart':
-          await sock.sendMessage(jid, {text: 'Restarting...'}, {quoted: msg})
-          process.exit(0)
-          setTimeout(main, 10000)
-          break
         case '.info':
           await sock.sendMessage(jid, {text: osInfo}, {quoted: msg})
           break
