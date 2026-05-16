@@ -97,7 +97,11 @@ async function main(){
         await sock.sendMessage(jid, {text: menuText}, {quoted: msg})
         break
       case '.ts <text>':
-        await sticker.fromText(sock, jid, msg, rawText.slice(4))
+        if(!msg.message.extendedTextMessage?.text){
+          await sock.sendMessage(jid, {text: 'No text found, please attach text'}, {quoted: msg})
+        }else if(msg.message.extendedTextMessage?.text){
+          sticker.fromText(sock, jid, msg)
+        }
         break
       case '.s':
         if(!msg.message.imageMessage && !msg.message.videoMessage && !msg.contextInfo?.quotedMessage?.imageMessage && !msg.contextInfo?.quotedMessage?.videoMessage){
