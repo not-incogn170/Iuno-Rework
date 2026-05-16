@@ -80,7 +80,7 @@ async function main(){
   sock.ev.on('messages.upsert', async ({messages}) => {
     const msg = messages[0]
     if(!msg.message || msg.key.fromMe) return
-    const rawText = msg.message.conversation || msg.message.extendedTextMessage?.text || msg.message.imageMessage?.caption || msg.message.videoMessage?.caption || msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.imageMessage.caption || msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.videoMessage?.caption || "<not yet implemented>"
+    const rawText = msg.message.conversation || msg.message.extendedTextMessage?.text || msg.message.imageMessage?.caption || msg.message.videoMessage?.caption || msg.quoted?.message?.imageMessage || msg.quoted?.message?.videoMessage || "<not yet implemented>"
     const userId = msg.key.participantAlt || msg.key.remoteJidAlt || "error"
     let text = rawText.split(' ')
     
@@ -97,11 +97,11 @@ async function main(){
         await sock.sendMessage(jid, {text: menuText}, {quoted: msg})
         break
       case '.s':
-        if(!msg.message.imageMessage && !msg.message.videoMessage && !msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.imageMessage && !msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.videoMessage){
+        if(!msg.message.imageMessage && !msg.message.videoMessage && !msg.quoted?.message?.imageMessage && !msg.quoted?.message?.videoMessage){
           await sock.sendMessage(jid, {text: 'No media found, please attach image/video'}, {quoted: msg})
-        }else if(msg.message.imageMessage && msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.imageMessage){
+        }else if(msg.message.imageMessage && msg.quoted?.message?.imageMessage){
           sticker.fromImage(sock, jid, msg, downloadMediaMessage)
-        }else if(msg.message.videoMessage && msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.videoMessage){
+        }else if(msg.message.videoMessage && msg.quoted?.message?.videoMessage){
           sticker.fromVideo(sock, jid, msg, downloadMediaMessage)
         }
         break
