@@ -96,6 +96,9 @@ async function main(){
       case '.menu':
         await sock.sendMessage(jid, {text: menuText}, {quoted: msg})
         break
+      case 'when' :
+        await sock.sendMessage(jid, {text: 'when when'}, {quoted: msg})
+        break
       case '.s':
         if(!msg.message.imageMessage && !msg.message.videoMessage){
           await sock.sendMessage(jid, {text: 'No media found, please attach image/video'}, {quoted: msg})
