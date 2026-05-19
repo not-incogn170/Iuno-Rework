@@ -111,6 +111,9 @@ async function main(){
       case '.whenyah':
         await sock.sendMessage(jid, {text: 'When when'}, {quoted: msg})
         break
+      case 'eue' : //sirkel only
+        await sock.sendMessage(jid, {text: 'jangan mas><'}, {quoted: msg})
+        break
     }
     
     if(userId == `${OWNER_PHONE_NUMBER}@s.whatsapp.net` || userId == `${OWNER_PHONE_NUMBER}@s.whatsapp.net`){
