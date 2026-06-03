@@ -96,10 +96,8 @@ async function main(){
       case '.menu':
         await sock.sendMessage(jid, {text: menuText}, {quoted: msg})
         break
-      case 'when' :
-        await sock.sendMessage(jid, {text: 'when when'}, {quoted: msg})
-        break
       case '.s':
+      case '.sticker':
         if(!msg.message.imageMessage && !msg.message.videoMessage){
           await sock.sendMessage(jid, {text: 'No media found, please attach image/video'}, {quoted: msg})
         }else if(msg.message.imageMessage){
@@ -108,7 +106,15 @@ async function main(){
           sticker.fromVideo(sock, jid, msg, downloadMediaMessage)
         }
         break
+      case '.toimg':
+        if(!msg.message.stickerMessage){
+          await sock.sendMessage(jid, {text: 'No sticker found, please attach sticker'}, {quoted: msg})
+        }else{
+          sticker.toImage(sock, jid, msg, downloadMediaMessage)
+        }
+        break
       case '.whenyah':
+      case 'when':
         await sock.sendMessage(jid, {text: 'When when'}, {quoted: msg})
         break
       case 'eue' : //sirkel only
