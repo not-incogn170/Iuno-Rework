@@ -80,7 +80,7 @@ async function main(){
   sock.ev.on('messages.upsert', async ({messages}) => {
     const msg = messages[0]
     if(!msg.message || msg.key.fromMe) return
-    const rawText = msg.message.conversation || msg.message.extendedTextMessage?.text || msg.message.imageMessage?.caption || msg.message.videoMessage?.caption || msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage || "<not yet implemented>"
+    const rawText = msg.message.conversation || msg.message.extendedTextMessage?.text || msg.message.imageMessage?.caption || msg.message.videoMessage?.caption || "<not yet implemented>"
     const userId = msg.key.participantAlt || msg.key.remoteJidAlt || "error"
     let text = rawText.split(' ')
     
@@ -106,13 +106,6 @@ async function main(){
           sticker.fromVideo(sock, jid, msg, downloadMediaMessage)
         }
         break
-      case '.toimg':
-        if(!msg.message.stickerMessage, !msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage){
-          await sock.sendMessage(jid, {text: 'No sticker found, please attach sticker'}, {quoted: msg})
-        }else{
-          sticker.toImage(sock, jid, msg, downloadMediaMessage)
-        }
-        break
       case '.whenyah':
       case 'when':
         await sock.sendMessage(jid, {text: 'When when'}, {quoted: msg})
@@ -127,7 +120,7 @@ async function main(){
         case '.info':
           await sock.sendMessage(jid, {text: osInfo}, {quoted: msg})
           break
-        case '.dead':
+        case '.restart':
           await sock.sendMessage(jid, {text: 'Goodbye...'}, {quoted: msg})
           process.exit(0)
           break
