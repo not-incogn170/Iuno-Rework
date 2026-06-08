@@ -110,6 +110,9 @@ async function main(){
       case 'when':
         await sock.sendMessage(jid, {text: 'When when'}, {quoted: msg})
         break
+      case 'test' :
+        await sock.sendMessage(jid, {text: 'is'}, {quoted: msg})
+        break
       case 'eue' : //sirkel only
         await sock.sendMessage(jid, {text: 'jangan mas><'}, {quoted: msg})
         break
