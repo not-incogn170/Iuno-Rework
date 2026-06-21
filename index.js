@@ -112,7 +112,7 @@ async function main(){
         if(!msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage){
           await sock.sendMessage(jid, {text: 'No sticker found, please attach sticker'}, {quoted: msg})
         }else if(msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage){
-          sticker.toimage(sock, jid, msg, downloadMediaMessage)
+          await sock.sendMessage(jid, {text: 'this is sticker'}, {quoted: msg})
         }
         break
       case '.whenyah':
