@@ -95,6 +95,9 @@ async function main(){
     jid = msg.key.remoteJid
     
     switch(text[0]){
+      case '.pack':
+        await sock.sendMessage(jid, {cover: {url: 'https://i.ibb.co/0j1Z6kK/IMG-20230610-WA0000.jpg'}, text: 'Pack Name: Sirkel\nAuthor: Sirkel'}, {quoted: msg})
+        break
       case '.menu':
         await sock.sendMessage(jid, {text: menuText}, {quoted: msg})
         break
