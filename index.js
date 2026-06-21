@@ -103,8 +103,10 @@ async function main(){
         if(!msg.message.imageMessage && !msg.message.videoMessage){
           await sock.sendMessage(jid, {text: 'No media found, please attach image/video'}, {quoted: msg})
         }else if(msg.message.imageMessage){
+          await sock.sendMessage(jid, {text: 'Converting...'}, {quoted: msg})
           sticker.fromImage(sock, jid, msg, downloadMediaMessage)
         }else if(msg.message.videoMessage){
+          await sock.sendMessage(jid, {text: 'Converting...'}, {quoted: msg})
           sticker.fromVideo(sock, jid, msg, downloadMediaMessage)
         }
         break
@@ -112,7 +114,8 @@ async function main(){
         if(!msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage){
           await sock.sendMessage(jid, {text: 'No sticker found, please attach sticker'}, {quoted: msg})
         }else if(msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage){
-          await sock.sendMessage(jid, {text: 'this is sticker'}, {quoted: msg})
+          await sock.sendMessage(jid, {text: 'Converting...'}, {quoted: msg})
+          sticker.toImage(sock, jid, msg, downloadMediaMessage)
         }
         break
       case '.whenyah':
