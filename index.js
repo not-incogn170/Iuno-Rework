@@ -80,7 +80,7 @@ async function main(){
   sock.ev.on('messages.upsert', async ({messages}) => {
     const msg = messages[0]
     if(!msg.message || msg.key.fromMe) return
-    const rawText = msg.message.conversation || msg.message.extendedTextMessage?.text || msg.message.imageMessage?.caption || msg.message.videoMessage?.caption || msg.message.stickerMessage?.quoted || "<not yet implemented>"
+    const rawText = msg.message.conversation || msg.message.extendedTextMessage?.text || msg.message.imageMessage?.caption || msg.message.videoMessage?.caption || msg.message.stickerMessage?.quoted?.text || "<not yet implemented>"
     const userId = msg.key.participantAlt || msg.key.remoteJidAlt || "error"
     let text = rawText.split(' ')
     
@@ -107,7 +107,7 @@ async function main(){
         }
         break
       case '.toimg':
-        if(!msg.message.stickerMessage?.quoted){
+        if(!msg.message.stickerMessage?.quoted?.text){
           await sock.sendMessage(jid, {text: 'No sticker found, please attach sticker'}, {quoted: msg})
         }else{
           sticker.toImage(sock, jid, msg, downloadMediaMessage)
