@@ -7,7 +7,6 @@ const {exec} = require('child_process')
 const os = require('node:os')
 const util = require('util')
 const sticker = require('./lib/sticker')
-const toimg = require('./lib/conv')
 
 const execPromise = util.promisify(exec)
 
