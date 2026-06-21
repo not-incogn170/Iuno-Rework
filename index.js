@@ -136,7 +136,7 @@ async function main(){
           await sock.sendMessage(jid, {text: osInfo}, {quoted: msg})
           break
         case '.re':
-          await sock.sendMessage(jid, {text: 'Goodbye...'}, {quoted: msg})
+          await sock.sendMessage(jid, {text: 'restarting...'}, {quoted: msg})
           process.exit(0)
           break
         case '.cu':
