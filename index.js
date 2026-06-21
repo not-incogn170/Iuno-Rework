@@ -81,14 +81,11 @@ async function main(){
   sock.ev.on('messages.upsert', async ({messages}) => {
     const msg = messages[0]
     if(!msg.message || msg.key.fromMe) return
-    const media = msg.message.imageMessage || msg.message.videoMessage || msg.message.stickerMessage || "media message"
-    const rawText = msg.message.conversation || msg.message.extendedTextMessage?.text || msg.message.imageMessage?.caption || msg.message.videoMessage?.caption || msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage 
+    const rawText = msg.message.stickerMessage ? "<sticker>" : (
+      msg.message.conversation || msg.message.extendedTextMessage?.text || msg.message.imageMessage?.caption || msg.message.videoMessage?.caption || msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage || "<not yet implemented>"
+    )
     const userId = msg.key.participantAlt || msg.key.remoteJidAlt || "error"
     let text = rawText.split(' ')
-
-    if(media === "media message"){
-      console.log(`${userId} | ${msg.pushName}\n> ${rawText}\n=================`)
-    }
     
     if(!msg.key.fromMe){
       //console.log(msg)
