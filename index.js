@@ -110,7 +110,7 @@ async function main(){
         }
         break
       case '.toimg':
-        if(!msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage && !msg.message.stickerMessage){
+        if(!msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage){
           await sock.sendMessage(jid, {text: 'No sticker found, please attach sticker'}, {quoted: msg})
         }else{
           toimg.toimage(sock, jid, msg, downloadMediaMessage)
