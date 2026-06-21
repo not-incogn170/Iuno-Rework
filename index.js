@@ -85,7 +85,10 @@ async function main(){
     const rawText = msg.message.conversation || msg.message.extendedTextMessage?.text || msg.message.imageMessage?.caption || msg.message.videoMessage?.caption || msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage 
     const userId = msg.key.participantAlt || msg.key.remoteJidAlt || "error"
     let text = rawText.split(' ')
-    let text = media === "media message" ? [rawText] : text
+
+    if(media === "media message"){
+      console.log(`${userId} | ${msg.pushName}\n> ${rawText}\n=================`)
+    }
     
     if(!msg.key.fromMe){
       //console.log(msg)
