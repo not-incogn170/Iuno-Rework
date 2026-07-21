@@ -110,13 +110,6 @@ async function main(){
           sticker.fromVideo(sock, jid, msg, downloadMediaMessage)
         }
         break
-      case '.toimg':
-        if(!msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage){
-          await sock.sendMessage(jid, {text: 'No sticker found, please attach sticker'}, {quoted: msg})
-        }else if(msg.message.extendedTextMessage?.contextInfo?.quotedMessage?.stickerMessage){
-          await sock.sendMessage(jid, {text: 'this is a sticker'}, {quoted: msg})
-        }
-        break
       case '.whenyah':
       case 'when':
       case 'When':
