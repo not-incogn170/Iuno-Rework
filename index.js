@@ -115,9 +115,8 @@ async function main(){
       case 'When':
         if(userId == `${OWNER_PHONE_NUMBER}@s.whatsapp.net` || userId == `${OWNER_PHONE_NUMBER}@s.whatsapp.net`){
           await sock.sendMessage(jid, {text: 'When when ya bub💕'}, {quoted: msg})
-        }else if(!userId == `${OWNER_PHONE_NUMBER}@s.whatsapp.net` || !userId == `${OWNER_PHONE_NUMBER}@s.whatsapp.net`){
-          await sock.sendMessage(jid, {text: 'When when'}, {quoted: msg})
         }
+        else await sock.sendMessage(jid, {text: 'When when'}, {quoted: msg})
         break
       case 'test' :
         await sock.sendMessage(jid, {text: 'is'}, {quoted: msg})
