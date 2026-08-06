@@ -114,7 +114,7 @@ async function main(){
       case 'Bub':
         if(userId == `${OWNER_PHONE_NUMBER}@s.whatsapp.net`){
           await sock.sendMessage(jid, {text: 'iya bub💕'}, {quoted: msg})
-        }else await sock.sendMessage(jid, {text: 'my bubub cuman (' + `${OWNER_PHONE_NUMBER}@s.whatsapp.net` + ')'}, {quoted: msg})
+        }else await sock.sendMessage(jid, {text: 'my bubub cuman ' + (userId == `${OWNER_PHONE_NUMBER}@s.whatsapp.net`)}, {quoted: msg})
         break
       case 'kapan':
       case 'Kapan':
