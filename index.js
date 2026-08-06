@@ -146,9 +146,7 @@ async function main(){
       case 'eue' : //sirkel only
         await sock.sendMessage(jid, {text: 'jangan mas><'}, {quoted: msg})
         break
-
-      //Downloaders
-      case '.ig' :
+      case '.ig' : //Downloaders
       case '.yt' :
       case '.fb' :
       case '.tt' :
@@ -162,15 +160,15 @@ async function main(){
           '.yt' : 'yt',
           '.fb' : 'fb',
           '.tt' : 'tt',
-          '.tw' : 'tw',
+          '.tw' : 'x',
         }
         await sock.sendMessage(jid, {text: 'Downloading...'}, {quoted: msg})
-        try {
-        const dlResult = await downloadMedia(text[1], typeMap[text[0]])
-        const resultString = typeof dlResult === 'string' ? dlResult : JSON.stringify(dlResult, null, 2)
-        await simulateTyping(sock, jid, {auto:true, text: resultString})
-        await sock.sendMessage(jid, {text: resultString}, {quoted: msg})
-        } catch (err) {
+        try{
+          const dlResult = await downloadMedia(typeMap[text[0]], text[1])
+          const resultString = typeof dlResult === 'object' ? JSON.stringify(dlResult, null, 2) : String(dlResult)
+          await simulateTyping(sock, jid, {auto:true, text: resultString})
+          await sock.sendMessage(jid, {text: resultString}, {quoted: msg})
+        }catch (err) {
           await sock.sendMessage(jid, {text: `Error downloading media: ${err.message}`}, {quoted: msg})
         }
       break
