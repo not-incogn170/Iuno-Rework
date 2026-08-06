@@ -13,6 +13,8 @@ const execPromise = util.promisify(exec)
 const PHONE_NUMBER = process.env.PHONE_NUMBER
 const OWNER_PHONE_NUMBER = process.env.OWNER_PHONE_NUMBER
 
+const { downloadMedia } = require('./lib/down')
+
 const osInfo = `\`\`\`Server Info\`\`\`
 > Platform: ${os.platform()}
 > Architecture: ${os.arch()}
@@ -136,6 +138,33 @@ async function main(){
       case 'eue' : //sirkel only
         await sock.sendMessage(jid, {text: 'jangan mas><'}, {quoted: msg})
         break
+
+      //Downloaders
+      case '.ig' :
+      case '.yt' :
+      case '.fb' :
+      case '.tt' :
+      case '.tw' :
+        if(!text[1]){
+        await sock.sendMessage(jid, {text: 'This feature is currently under development. Please check back later.'}, {quoted: msg})
+        break
+      const typeMap = {
+        '.ig' : 'ig',
+        '.yt' : 'yt',
+        '.fb' : 'fb',
+        '.tt' : 'tt',
+        '.tw' : 'tw',
+      }
+      await sock.sendMessage(jid, {text: 'Loading...'}, {quoted: msg})
+      try{
+        const dlresult = await downloadMedia(text[1], typeMap[text[0]])
+        const resultString = typeof dlresult === 'object' ? JSON.stringify(dlresult, null, 2) : dlresult
+        await simulateTyping(sock, jid, {autoSend: true, text: resultString})
+        await sock.sendMessage(jid, {text: 'Download complete!'}, {quoted: msg})
+      } catch (err) {
+        await sock.sendMessage(jid, {text: `Error downloading media: ${err.message}`}, {quoted: msg})
+      }
+      break
     }
     
     if(userId == `${OWNER_PHONE_NUMBER}@s.whatsapp.net` || userId == `${OWNER_PHONE_NUMBER}@s.whatsapp.net`){
