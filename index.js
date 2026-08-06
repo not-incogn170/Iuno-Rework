@@ -110,6 +110,11 @@ async function main(){
           sticker.fromVideo(sock, jid, msg, downloadMediaMessage)
         }
         break
+      case 'bub':
+      case 'Bub':
+        if(userId == `${OWNER_PHONE_NUMBER}@s.whatsapp.net`){
+          await sock.sendMessage(jid, {text: 'iya bub💕'}, {quoted: msg})
+        }else await sock.sendMessage(jid, {text: 'my bubub cuman (' + OWNER_PHONE_NUMBER + ')'}, {quoted: msg})
       case 'kapan':
       case 'Kapan':
         if(userId == `${OWNER_PHONE_NUMBER}@s.whatsapp.net`){
