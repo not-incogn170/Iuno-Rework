@@ -9,6 +9,14 @@
 > .s <media> | _converts media to sticker_
 > .whenyah <text> | _when? i don't know_
 
+>> Download media
+
+> .yt <link>
+> .fb <link>
+> .tt <link>
+> .ig <link>
+> .tw <link>
+
 >> Owner only
 > .cu | _check update_
 > .dead | _will restart or kill itself (suicide)_
