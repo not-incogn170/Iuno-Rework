@@ -7,7 +7,6 @@ const {exec} = require('child_process')
 const os = require('node:os')
 const util = require('util')
 const sticker = require('./lib/sticker')
-const btch = require('btch-downloader')
 
 const execPromise = util.promisify(exec)
 

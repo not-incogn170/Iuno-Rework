@@ -3,7 +3,8 @@
     "@whiskeysockets/baileys": "^7.0.0-rc.9",
     "dotenv": "^17.4.2",
     "fluent-ffmpeg": "^2.1.3",
-    "pino": "^10.3.1"
+    "pino": "^10.3.1",
+    "btch-downloader": "^6.0.0"
   },
   "name": "myuti",
   "version": "1.0.0",
