@@ -148,22 +148,24 @@ async function main(){
         if(!text[1]){
         await sock.sendMessage(jid, {text: 'This feature is currently under development. Please check back later.'}, {quoted: msg})
         break
-      const typeMap = {
-        '.ig' : 'ig',
-        '.yt' : 'yt',
-        '.fb' : 'fb',
-        '.tt' : 'tt',
-        '.tw' : 'tw',
-      }
-      await sock.sendMessage(jid, {text: 'Loading...'}, {quoted: msg})
-      try{
-        const dlresult = await downloadMedia(text[1], typeMap[text[0]])
-        const resultString = typeof dlresult === 'object' ? JSON.stringify(dlresult, null, 2) : dlresult
-        await simulateTyping(sock, jid, {autoSend: true, text: resultString})
-        await sock.sendMessage(jid, {text: 'Download complete!'}, {quoted: msg})
-      } catch (err) {
-        await sock.sendMessage(jid, {text: `Error downloading media: ${err.message}`}, {quoted: msg})
-      }
+        }
+        const typeMap = {
+          '.ig' : 'ig',
+          '.yt' : 'yt',
+          '.fb' : 'fb',
+          '.tt' : 'tt',
+          '.tw' : 'tw',
+        }
+        await sock.sendMessage(jid, {text: 'Downloading...'}, {quoted: msg})
+        try {
+        const dlResult = await downloadMedia(text[1], typeMap[text[0]])
+        const resultString = typeof dlResult === 'string' ? dlResult : JSON.stringify(dlResult, null, 2)
+        const dlResult = await downloadMedia(text[1], typeMap[text[0]])
+        await simulateTyping(sock, jid, {auto:true, text: resultString})
+        await sock.sendMessage(jid, {text: resultString}, {quoted: msg})
+        } catch (err) {
+          await sock.sendMessage(jid, {text: `Error downloading media: ${err.message}`}, {quoted: msg})
+        }
       break
     }
     
