@@ -160,7 +160,6 @@ async function main(){
         try {
         const dlResult = await downloadMedia(text[1], typeMap[text[0]])
         const resultString = typeof dlResult === 'string' ? dlResult : JSON.stringify(dlResult, null, 2)
-        const dlResult = await downloadMedia(text[1], typeMap[text[0]])
         await simulateTyping(sock, jid, {auto:true, text: resultString})
         await sock.sendMessage(jid, {text: resultString}, {quoted: msg})
         } catch (err) {
