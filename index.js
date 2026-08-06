@@ -23,6 +23,14 @@ const osInfo = `\`\`\`Server Info\`\`\`
 > Total Memory: ${(os.totalmem() / 1e9).toFixed(2)} GB
 > Free Memory: ${(os.freemem() / 1e9).toFixed(2)} GB`
 
+async function simulateTyping(sock, jid, {duration = 1000, auto = false, text = ''} = {}){
+  await sock.sendPresenceUpdate('composing', jid)
+  if(auto == true && text.length > 200) duration = text.length * 5
+  if(auto == true && text.length >= 1000) duration = 5000
+  await new Promise(resolve => setTimeout(resolve, duration))
+  await sock.sendPresenceUpdate('paused', jid)
+}
+
 async function isUpdateExist(){
   try{
     const {stdout} = await execPromise('git pull')
